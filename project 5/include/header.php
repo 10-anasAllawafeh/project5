@@ -1,14 +1,8 @@
 <?php
-    $conn=mysqli_connect('localhost','root','','furniture');
-
-    if ($conn->connect_error) 
-    {
-        echo 'not connected, error';
-    }
-    // else
-    // {
-    //     echo 'Connected Successfully';
-    // }
+$on="none";
+if (!empty($_SESSION['name'])) {
+    $on="block";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,10 +60,10 @@
             <ul class="list-unstyled components">
                 
                 <li class="active"> <a href="index.php">Home</a></li>
-                 <li> <a href="about.php">About</a></li>
-                                        <li> <a href="product.php">Product</a></li>
-                                        <li> <a href="blog.php">Blog</a></li>
-                                        <li> <a href="contact.php">Contact us</a></li>
+                <li> <a href="about.php">About</a></li>
+                <li> <a href="product.php">Product</a></li>
+                <li> <a href="blog.php">Blog</a></li>
+                <li> <a href="contact.php">Contact us</a></li>
 
             </ul>
 
@@ -97,11 +91,11 @@
                                 <div class="right_header_info">
                                     <ul>
                                         <li>
-                                            <a href="#"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a>
+                                            <a href="profile.php" style="display:<?php echo $on ?> ;"><img style="margin-right: 15px;" src="icon/1.png" alt="profile" /></a>
                                         </li>
                                 
                                         <li>
-                                            <a href="#"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a>
+                                            <a href="product.php" style="display:<?php echo $on ?> ;"><img style="margin-right: 15px;" src="icon/3.png" alt="cart" /></a>
                                         </li>
 
                                         <li>

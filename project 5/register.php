@@ -1,12 +1,12 @@
 <?php
- require 'include/header.php'; 
-?>
-
-<!-- switch page -->
+ include 'config/connect.php'; 
 
 
-<!-- Register Validation function -->
-<?php
+//switch page 
+
+
+// Register Validation function
+
 
       // regular expressions
       $pwd_expression = "/(^[A-Z])(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/";
@@ -157,7 +157,7 @@
                    
         }
 
-
+        include 'include/header.php'; 
 ?>
 <br><br>
 
@@ -171,14 +171,14 @@
   <div class="form-row">
     <div class="col-md-2 offset-md-4">
       <label for="validationCustom01">First name</label>
-      <input type="text" class="form-control is-inavalid" id="validationCustom01" name="fName" placeholder="First name" value="Mark" required>
+      <input type="text" class="form-control is-inavalid" id="validationCustom01" name="fName" placeholder="First name"  required>
       <div class="invalid-feedback" style="display:<?php echo $fn ?>">
         <?php echo $fnErr ?>
       </div>
     </div>
     <div class="col-md-2 ">
       <label for="validationCustom02">Last name</label>
-      <input type="text" class="form-control is-inavalid" id="validationCustom02" name="lName" placeholder="Last name" value="Otto" required>
+      <input type="text" class="form-control is-inavalid" id="validationCustom02" name="lName" placeholder="Last name"  required>
       <div class="invalid-feedback" style="display:<?php echo $ln ?>">
         <?php echo $lnErr ?>
         </div>
