@@ -1,10 +1,4 @@
-<?php 
-include 'config/connect.php';
-
-
-
-include 'include/header.php'; 
-?>
+<?php include 'include/header.php'; ?>
 
      <div class="contactus">
    <div class="container-fluid">

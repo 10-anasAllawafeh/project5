@@ -1,9 +1,3 @@
-<?php
-$on="none";
-if (!empty($_SESSION['name'])) {
-    $on="block";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +9,7 @@ if (!empty($_SESSION['name'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>niture</title>
+    <title>Luxury Furniture</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -23,8 +17,12 @@ if (!empty($_SESSION['name'])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/4a27207296.js" crossorigin="anonymous"></script>
     <!-- fevicon -->
     <link rel="icon" href="images/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
@@ -38,20 +36,20 @@ if (!empty($_SESSION['name'])) {
 </head>
 <!-- body -->
 
-<body class="main-layout">
+<body class="main-layout ">
 
     <!-- loader  -->
-    <div class="loader_bg">
+    <!-- <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-    </div>
-     <!-- end loader -->
+    </div> -->
+    <!-- end loader -->
 
-    <div class="wrapper">
+    <div class="wrapper ">
 
-       
-        <div class="sidebar">
-         <!-- Sidebar  -->
-        <nav id="sidebar">
+
+        <!-- <div class="sidebar bg-warning text-dark" > -->
+        <!-- Sidebar  -->
+        <!-- <nav id="sidebar" >
 
             <div id="dismiss">
                 <i class="fa fa-arrow-left"></i>
@@ -60,29 +58,29 @@ if (!empty($_SESSION['name'])) {
             <ul class="list-unstyled components">
                 
                 <li class="active"> <a href="index.php">Home</a></li>
-                <li> <a href="about.php">About</a></li>
-                <li> <a href="product.php">Product</a></li>
-                <li> <a href="blog.php">Blog</a></li>
-                <li> <a href="contact.php">Contact us</a></li>
+                 <li> <a href="about.php">About</a></li>
+                                        <li> <a href="product.php">Product</a></li>
+                                        <li> <a href="blog.php">Blog</a></li>
+                                        <li> <a href="contact.php">Contact us</a></li>
 
             </ul>
 
         </nav>
-      </div>
-      <div id="content">
+      </div> -->
+        <div id="content">
             <!-- header -->
             <header>
                 <!-- header inner -->
-                <div class="header">
+                <div class="header header-bg">
 
                     <div class="container-fluid">
 
                         <div class="row">
-                            <div class="col-lg-3 logo_section">
+                            <div class="col-md-3 logo_section">
                                 <div class="full">
                                     <div class="center-desk">
                                         <div class="logo">
-                                            <a href="index.php"><img src="images/logo.jpg" alt="#"></a>
+                                            <a href="index.php"><img src="images/logo.png" alt="#"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -90,20 +88,38 @@ if (!empty($_SESSION['name'])) {
                             <div class="col-lg-9">
                                 <div class="right_header_info">
                                     <ul>
+                                        <li class="active"> <a href="index.php">Home</a></li>
+                                        <li> <a href="about.php">About</a></li>
+                                        <li> <a href="product.php">Product</a></li>
+                                        <li> <a href="blog.php">Blog</a></li>
+                                        <li> <a href="contact.php">Contact us</a></li>
                                         <li>
-                                            <a href="profile.php" style="display:<?php echo $on ?> ;"><img style="margin-right: 15px;" src="icon/1.png" alt="profile" /></a>
+                                        <button type="button" class="btn btn-outline-secondary"><a href="#">Sign up</a></button>
+                                            <!-- <a href="#">
+                                                <img style="margin-right: 15px;" src="icon/1.png" alt="#" />
+                                                <i class="fa-solid fa-user basket-icon"></i>
+                                            </a> -->
                                         </li>
-                                
                                         <li>
-                                            <a href="product.php" style="display:<?php echo $on ?> ;"><img style="margin-right: 15px;" src="icon/3.png" alt="cart" /></a>
+                                        <button type="button" class="btn btn-outline-secondary"><a href="#">Login</a></button>
                                         </li>
 
                                         <li>
+                                            <a href="#">
+                                                <!-- <img style="margin-right: 15px;" src="icon/3.png" alt="#" /> -->
+                                                <i class="fa-solid fa-basket-shopping basket-icon"></i>
+                                            </a>
+                                        </li>
+
+                                        <!-- <li>
                                             <button type="button" id="sidebarCollapse">
                                                 <img src="images/menu_icon.png" alt="#" />
+                                                <i class="fa-solid fa-bars menu-icon"></i>
                                             </button>
-                                        </li>
+                                        </li> -->
+
                                     </ul>
+
                                 </div>
                             </div>
                         </div>

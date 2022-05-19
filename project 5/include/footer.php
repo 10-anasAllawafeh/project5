@@ -1,4 +1,4 @@
-<!--  footer -->
+
 <footer>
                 <div class="footer">
                     <div class="container-fluid">
@@ -6,7 +6,7 @@
                             <div class="row">
                                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
 
-                                    <img class="logo1" src="images/logo1.jpg" />
+                                    <img class="logo1" src="images/footrlogo.png" />
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -26,6 +26,8 @@
                                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
                                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
                                         <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li> <a href="#"><i class="fa-brands fa-github"></i></a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -45,8 +47,8 @@
                             </div> -->
                             <div class="col-md-12">
                                 <div class="newtt">
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point
-                                        <br> of using Lorem I</p>
+                                    <p class="footer-p">Discover affordable furniture and home furnishing inspiration for all sizes of wallets and homes.
+                                        <br> </p>
                                 </div>
                             </div>
                         </div>
