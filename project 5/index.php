@@ -1,6 +1,5 @@
 <?php include 'config/connect.php';
-
-
+session_start();
 include 'include/header.php'; ?>
 
 <section class="slider_section">
@@ -62,21 +61,21 @@ include 'include/header.php'; ?>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margitop">
                 <div class="trending-box">
                     <figure><img src="images/office-cate/office-cat.png" /></figure>
-                    <h3>Offices</h3>
+                    <h3><a href="main.php">Offices</a> </h3>
 
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="trending-box">
                     <figure><img src="images/living-cate/living.png" /></figure>
-                    <h3>Living Room</h3>
+                    <h3><a href="main.php">Living Room</a></h3>
 
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margitop">
                 <div class="trending-box">
                     <figure><img src="images/bedroom-cate/bedroom.png" /></figure>
-                    <h3>Bedroom</h3>
+                    <h3><a href="main.php">Bedroom</a></h3>
 
                 </div>
             </div>

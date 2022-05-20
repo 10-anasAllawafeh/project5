@@ -1,7 +1,11 @@
 <?php 
     session_start();
-    require_once('./inc/config.php');    
-    require_once('./inc/helpers.php');  
+    require_once('./config/config.php');    
+    require_once('include/helpers.php');
+    $sql="SELECT * FROM order_details";  
+    $handle = $db->prepare($sql);
+    $handle->execute();
+    $Products = $handle->fetchAll(PDO::FETCH_ASSOC);
 
     if(isset($_GET['action'],$_GET['item']) && $_GET['action'] == 'remove')
     {
@@ -13,13 +17,18 @@
 	$pageTitle = 'Demo PHP Shopping cart - Add to cart using Session';
 	$metaDesc = 'Demo PHP Shopping cart - Add to cart using Session';
 	
-    include('layouts/header.php');
+    include('./include/header.php');
 
     //pre($_SESSION);
+    if (isset($_GET['delete'])) {
+        $sql="DELETE FROM `order_details`";
+        $handle = $db->prepare($sql);
+        $handle->execute();
+    }
 ?>
 <div class="row">
     <div class="col-md-12">
-        <?php if(empty($_SESSION['cart_items'])){?>
+        <?php if(empty($Products)){?>
         <table class="table">
             <tr>
                 <td>
@@ -28,7 +37,7 @@
             </tr>
         </table>
         <?php }?>
-        <?php if(isset($_SESSION['cart_items']) && count($_SESSION['cart_items']) > 0){?>
+        <?php if(isset($Products) && count($Products) > 0): ?>
         <table class="table">
            <thead>
                 <tr>
@@ -42,9 +51,9 @@
                 <?php 
                     $totalCounter = 0;
                     $itemCounter = 0;
-                    foreach($_SESSION['cart_items'] as $key => $item){
+                    foreach($Products as $key => $item){
 
-                     $imgUrl = PRODUCT_IMG_URL.str_replace(' ','-',strtolower($item['product_name']))."/".$item['product_img'];   
+                    //  $imgUrl = PRODUCT_IMG_URL.str_replace(' ','-',strtolower($item['pname']))."/".$item['product_img'];   
                     
                     $total = $item['product_price'] * $item['qty'];
                     $totalCounter+= $total;
@@ -52,12 +61,11 @@
                     ?>
                     <tr>
                         <td>
-                            <img src="<?php echo $imgUrl; ?>" class="rounded img-thumbnail mr-2" style="width:60px;"><?php echo $item['product_name'];?>
+                            <img src="" alt="pic"class="rounded img-thumbnail mr-2" style="width:60px;"><?php echo $item['product_name'];?>
                             
                             <a href="cart.php?action=remove&item=<?php echo $key?>" class="text-danger">
-                                <i class="bi bi-trash-fill"></i>
+                            <i class="fa-solid fa-trash"></i>
                             </a>
-
                         </td>
                         <td>
                             $<?php echo $item['product_price'];?>
@@ -71,7 +79,10 @@
                     </tr>
                 <?php }?>
                 <tr class="border-top border-bottom">
-                    <td><button class="btn btn-danger btn-sm" id="emptyCart">Clear Cart</button></td>
+                <form action="cart.php" method="get">
+                <td><button type="submit" class="btn btn-danger btn-sm" id="emptyCart" name="delete">Clear Cart</button></td>
+                           </form>
+                    
                     <td></td>
                     <td>
                         <strong>
@@ -92,7 +103,7 @@
             </div>
         </div>
         
-        <?php }?>
+        <?php endif; ?>
     </div>
 </div>
-<?php include('layouts/footer.php');?>
+<?php include('include/footer.php');?>

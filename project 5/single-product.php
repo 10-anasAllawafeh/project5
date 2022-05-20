@@ -1,12 +1,12 @@
 <?php 
     session_start();
-    require_once('./inc/config.php');    
-    require_once('./inc/helpers.php');  
+    require_once('config/config.php');    
+    require_once('include/helpers.php');  
     
     if(isset($_GET['product']) && !empty($_GET['product']) && is_numeric($_GET['product']))
     {
-        $sql = "SELECT p.*,pdi.img from products p
-            INNER JOIN product_images pdi ON pdi.product_id = p.id WHERE pdi.is_featured =:featured AND p.id =:productID";
+        $sql = "SELECT * from products";
+            // -- INNER JOIN product_images pdi ON pdi.product_id = p.id WHERE pdi.is_featured =:featured AND p.id =:productID";
         $handle = $db->prepare($sql);
         $params = [
                 ':featured'=>1,
@@ -16,7 +16,8 @@
         if($handle->rowCount() == 1 )
         {
             $getProductData = $handle->fetch(PDO::FETCH_ASSOC);
-            $imgUrl = PRODUCT_IMG_URL.str_replace(' ','-',strtolower($getProductData ['product_name']))."/".$getProductData ['img'];
+            // $imgUrl = PRODUCT_IMG_URL.str_replace(' ','-',strtolower($getProductData ['pname']))."/".$getProductData ['image'];
+            // $imgUrl=$getProductData ['image'];
         }
         else
         {
@@ -34,8 +35,8 @@
         $productID = intval($_POST['product_id']);
         $productQty = intval($_POST['product_qty']);
         
-        $sql = "SELECT p.*,pdi.img from products p
-            INNER JOIN product_images pdi ON pdi.product_id = p.id WHERE pdi.is_featured =:featured AND p.id =:productID";
+        $sql = "SELECT * from products";
+            // INNER JOIN product_images pdi ON pdi.product_id = p.id WHERE pdi.is_featured =:featured AND p.id =:productID";
 
         $prepare = $db->prepare($sql);
         
@@ -52,10 +53,10 @@
         $cartArray = [
             'product_id' =>$productID,
             'qty' => $productQty,
-            'product_name' =>$fetchProduct['product_name'],
+            'product_name' =>$fetchProduct['pname'],
             'product_price' => $fetchProduct['price'],
             'total_price' => $calculateTotalPrice,
-            'product_img' =>$fetchProduct['img']
+            'product_img' =>$fetchProduct['image']
         ];
         
         if(isset($_SESSION['cart_items']) && !empty($_SESSION['cart_items']))
@@ -93,7 +94,7 @@
 	$metaDesc = 'Demo PHP shopping cart get products from database';
 	
 	
-include('layouts/header.php');
+include('include/header.php');
 
 ?>
 
@@ -103,7 +104,7 @@ include('layouts/header.php');
                 <div class="col-md-12">
                     <div class="alert alert-success alert-dismissible">
                          <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <img src="<?php echo $imgUrl ?>" class="rounded img-thumbnail mr-2" style="width:40px;"><?php echo $getProductData['product_name']?> is added to cart. <a href="cart.php" class="alert-link">View Cart</a>
+                        <img src="./images/he.png" class="rounded img-thumbnail mr-2" style="width:40px;"><?php echo $getProductData['pname']?> is added to cart. <a href="cart.php" class="alert-link">View Cart</a>
                     </div>
                 </div>
             </div>
@@ -111,11 +112,13 @@ include('layouts/header.php');
 
         <div class="row mt-3">
             <div class="col-md-5">
-                <img src="<?php echo $imgUrl;?>">
+                <img src="./images/he.png">
             </div>
             <div class="col-md-7">
-                <h1><?php echo $getProductData['product_name']?></h1>
-                <p><?php echo $getProductData['short_description']?></p>
+                <h1><?php echo $getProductData['pname']?></h1>
+                <p><?php
+                //  echo $getProductData['short_description']
+                 ?></p>
                 <h4>$<?php echo $getProductData['price']?></h4>
                 
                 <form class="form-inline" method="POST">
@@ -132,7 +135,9 @@ include('layouts/header.php');
         </div>
         <div class="row mt-3">
             <div class="col-md-12">
-                <?php echo $getProductData['full_description']?>
+                <?php 
+                // echo $getProductData['full_description']
+                ?>
             </div>
         </div>
 
@@ -140,4 +145,4 @@ include('layouts/header.php');
     }
     ?>
 
-<?php include('layouts/footer.php');?>
+<?php include('include/footer.php');?>

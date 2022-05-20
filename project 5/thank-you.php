@@ -3,18 +3,18 @@
 
      if(!isset($_SESSION['confirm_order']) || empty($_SESSION['confirm_order']))
      {
-         header('location:index.php');
-         exit();
+        //  header('location:index.php');
+        //  exit();
      }
 
-    require_once('./inc/config.php');    
-    require_once('./inc/helpers.php');  
+    require_once('config/config.php');    
+    require_once('include/helpers.php');  
 
     
 	$pageTitle = 'Demo Thank You';
 	$metaDesc = 'Demo PHP shopping cart thank you page';
 	
-    include('layouts/header.php');
+    include('include/header.php');
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -24,5 +24,7 @@
             <?php unset($_SESSION['confirm_order']);?>
         </p>
     </div>
+
+    <a href="index.php">back to home page</a>
 </div>
-<?php include('layouts/footer.php'); ?>    
+<?php include('include/footer.php'); ?>    

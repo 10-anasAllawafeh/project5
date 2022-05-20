@@ -240,7 +240,7 @@
     </div>
     <div class="col-md-2 ">
       <label for="validationConPass">Confirm password</label>
-      <input type="text" class="form-control is-inavalid" id="validationConPass" name="registerConfPass" placeholder="********" required>
+      <input type="password" class="form-control is-inavalid" id="validationConPass" name="registerConfPass" placeholder="********" required>
       <div class="invalid-feedback" style="display:<?php echo $cps ?>">
         <?php echo $cpasswordErr ?>
       </div>

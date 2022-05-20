@@ -4,6 +4,7 @@ session_start();
 // login Validation function 
 
 
+
 $le= $lp="none";
 $lpErr="";
 $login=mysqli_fetch_all(mysqli_query($conn,'select * from users'),MYSQLI_ASSOC);
@@ -31,16 +32,19 @@ if (isset($_POST['login']))
         {
             if ($lemail == $user['email'] && $lpassword == $user['pass'])
             {
-                $_SESSION['name']=$user['name'];
-                $name=$user['name'];;
+                $_SESSION['id']=$user['id'];
+                $_SESSION['name']=$user['fname'];
+                $name=$user['fname'];
                 $_SESSION['email']=$user['email'];
                 $_SESSION['phone']=$user['phone'];
-                $user['LLDate']=date("d-m-Y H:i:s");
+                $_SESSION['city']=$user['city'];
+                $_SESSION['address']=$user['address'];
+                $_SESSION['pass']=$user['pass'];
                 $_SESSION['users'];
                 $ldate=date("d-m-Y H:i:s");
-                $sql="INSERT INTO logins (login date) VALUE ('$ldate') WHERE logins.name='$name'";
+                $sql="INSERT INTO users (login date) VALUE ('$ldate') WHERE users.name='$name'";
                 mysqli_query($conn , $sql);
-                header('location: index.php');
+                header('location: user.php');
             }
             else
             {
@@ -51,7 +55,6 @@ if (isset($_POST['login']))
     }
 }
 include 'include/header.php'; 
-
 ?>
 <br><br>
 <!-- Log In form -->
