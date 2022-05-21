@@ -115,6 +115,8 @@ if (!empty($_SESSION['name'])) {
                                         </li>
                                         <li style="display:<?php echo $uss; ?> ;"><a href="user.php" ><i class="fa-solid fa-user basket-icon"></i></a>
                                         </li>
+                                        <li style="display:<?php echo $uss; ?> ;"><a href="logout.php" ><i class="fa-solid fa-person-walking-arrow-right"></i></i></a>
+                                        </li>
 
                                         <!-- <li>
                                             <button type="button" id="sidebarCollapse">

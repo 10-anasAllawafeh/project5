@@ -13,6 +13,11 @@
     $pageTitle = 'Cool T-Shirt Shop';
 	$metaDesc = 'Demo PHP shopping cart get products from database';
 
+    if (isset($_POST['singalProduct'])) {
+        $_SESSION['product_id']=$_POST['id_value'];
+        header('location: single-product.php');
+    }
+
 
     include('include/header.php');
 ?>
@@ -46,9 +51,16 @@
                             <a href='single-product.php?product=".$product['id']."'>
                                 ".$product['pname']."
                             </a>
-                        </h5>
-                        <strong>$".$product['price']."</strong>
-                        <p class='card-text'>
+                            </h5>";
+                            if ($product['sale']==1) {
+                                echo "<span class='product_price'>$".$product['new_price']."</span>
+                                <span class ='old-price' STYLE='text-decoration:line-through'>$".$product['price']."</span>";
+                            }
+                            else{
+                                echo "<span class='product_price'>$".$product['price']."</span>";
+       
+                            }
+                            echo "<p class='card-text'>
                             <a href='single-product.php?product=".$product['id']."' class='btn btn-primary btn-sm'>
                                 View
                             </a>
@@ -69,12 +81,20 @@
                                         <a href='single-product.php?product=".$product['id']."'>
                                             ".$product['pname']."
                                         </a>
-                                    </h5>
-                                    <strong>$".$product['price']."</strong>
-                                    <p class='card-text'>
-                                        <a href='single-product.php?product=".$product['id']."' class='btn btn-primary btn-sm'>
-                                            View
-                                        </a>
+                                        </h5>";
+                                        if ($product['sale']==1) {
+                                            echo "<span class='product_price'>$".$product['new_price']."</span>
+                                            <span class ='old-price' STYLE='text-decoration:line-through'>$".$product['price']."</span>";
+                                        }
+                                        else{
+                                            echo "<span class='product_price'>$".$product['price']."</span>";
+                   
+                                        }
+                                        echo "<p class='card-text'>
+                                    <form action='main.php' method='POST' class='form'>
+                                    <input type='hidden' value='".$product['id']."' name='id_value'>
+                                    <button type='submit' class='form=control btn bbtn-primary' name='singalProduct'>view</button>
+                                    </form>
                                     </p>
                                 </div>
                             </div>
@@ -94,12 +114,20 @@
                                         <a href='single-product.php?product=".$product['id']."'>
                                             ".$product['pname']."
                                         </a>
-                                    </h5>
-                                    <strong>$".$product['price']."</strong>
-                                    <p class='card-text'>
-                                        <a href='single-product.php?product=".$product['id']."' class='btn btn-primary btn-sm'>
-                                            View
-                                        </a>
+                                        </h5>";
+                                        if ($product['sale']==1) {
+                                            echo "<span class='product_price'>$".$product['new_price']."</span>
+                                            <span class ='old-price' STYLE='text-decoration:line-through'>$".$product['price']."</span>";
+                                        }
+                                        else{
+                                            echo "<span class='product_price'>$".$product['price']."</span>";
+                   
+                                        }
+                                        echo "<p class='card-text'>
+                                    <form action='main.php' method='POST' class='form'>
+                                    <input type='hidden' value='".$product['id']."' name='id_value'>
+                                    <button type='submit' class='form=control btn bbtn-primary' name='singalProduct'>view</button>
+                                    </form>
                                     </p>
                                 </div>
                             </div>
@@ -119,12 +147,20 @@
                                         <a href='single-product.php?product=".$product['id']."'>
                                             ".$product['pname']."
                                         </a>
-                                    </h5>
-                                    <strong>$".$product['price']."</strong>
-                                    <p class='card-text'>
-                                        <a href='single-product.php?product=".$product['id']."' class='btn btn-primary btn-sm'>
-                                            View
-                                        </a>
+                                    </h5>";
+                                    if ($product['sale']==1) {
+                                        echo "<span class='product_price'>$".$product['new_price']."</span>
+                                        <span class ='old-price' STYLE='text-decoration:line-through'>$".$product['price']."</span>";
+                                    }
+                                    else{
+                                        echo "<span class='product_price'>$".$product['price']."</span>";
+               
+                                    }
+                                    echo "<p class='card-text'>
+                                    <form action='main.php' method='POST' class='form'>
+                                    <input type='hidden' value='".$product['id']."' name='id_value'>
+                                    <button type='submit' class='form=control btn bbtn-primary' name='singalProduct'>view</button>
+                                    </form>
                                     </p>
                                 </div>
                             </div>
@@ -148,16 +184,26 @@
                             <a href='single-product.php?product=".$product['id']."'>
                                 ".$product['pname']."
                             </a>
-                        </h5>
-                        <strong>$".$product['price']."</strong>
+                        </h5>";
+                        if ($product['sale']==1) {
+                            echo "<span class='product_price'>$".$product['new_price']."</span>
+                            <span class ='old-price' STYLE='text-decoration:line-through'>$".$product['price']."</span>";
+                        }
+                        else{
+                            echo "<span class='product_price'>$".$product['price']."</span>";
+   
+                        }
+                        echo "
                         <p class='card-text'>
-                            <a href='single-product.php?product=".$product['id']."' class='btn btn-primary btn-sm'>
-                                View
-                            </a>
+                            <form action='main.php' method='POST' class='form'>
+                            <input type='hidden' value='".$product['id']."' name='id_value'>
+                            <button type='submit' class='form=control btn bbtn-primary' name='singalProduct'>view</button>
+                            </form>
                         </p>
                     </div>
                 </div>
-            </div>";                
+            </div>";
+            // echo  $product['id'];               
             }
             // $imgUrl = PRODUCT_IMG_URL.str_replace(' ','-',strtolower($product['pname']))."/".$product['image'];
             
@@ -166,3 +212,4 @@
         <?php endforeach; ?>
     </div>
 <?php include('include/footer.php');?>
+

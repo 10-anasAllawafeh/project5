@@ -7,6 +7,9 @@ $users=mysqli_fetch_all(mysqli_query($conn,'select * from users'),MYSQLI_ASSOC);
 // call the products informations from database
 $products=mysqli_fetch_all(mysqli_query($conn,'select * from products'),MYSQLI_ASSOC);
 
+// call the sales informations from database
+$sales=mysqli_fetch_all(mysqli_query($conn,'select * from sales'),MYSQLI_ASSOC);
+
 // call the category informations from database
 $category=mysqli_fetch_all(mysqli_query($conn,'select * from category'),MYSQLI_ASSOC);
 
@@ -301,7 +304,7 @@ include 'include/header.php';
 
 <!-- add product button -->
 <form action="admin.php" method="POST">
-<h1>Users Information</h1>
+<h1>products Information</h1>
 <button class="btn bg-primary" type="submit" name="addProductSub">Add Product</button>
 </form>
 <!-- End Of add product button -->
@@ -330,7 +333,7 @@ include 'include/header.php';
         else {
         // Print product information
         echo "<tr class='bg-warning'>
-        <td>".$product['product_id']."</td>
+        <td>".$product['id']."</td>
         <td>".$product['pname']."</td>
         <td><img src='".$product['image']."' style='width:25px;height:25px' alt='dining table'></td>
         <td>".$product['category_id']."</td>
@@ -339,12 +342,12 @@ include 'include/header.php';
         <td>".$product['created_at']."</td>
         <td>".$product['updated_at']."</td>
         <td><form action='admin.php' method='POST'>
-            <input type='hidden' name='updateProduct' value='".$product['product_id']."'>
+            <input type='hidden' name='updateProduct' value='".$product['id']."'>
             <button type='submit' name='updateProductSub'>Update</button>
             </form>
         </td>
         <td><form action='admin.php' method='POST'>
-            <input type='hidden' name='deleteProduct' value='".$product['product_id']."'>
+            <input type='hidden' name='deleteProduct' value='".$product['id']."'>
             <button type='submit' name='deleteProductSub'>Delete</button>
             </form>
         </td></tr>";
@@ -425,13 +428,13 @@ include 'include/header.php';
 </form>
  
 <table class="table" >
-    <tr class='bg-active'>
-        <td>id</td>
-        <td>Category name</td>
-        <td>Created at</td>
-        <td>Updated at</td>
-        <td>Update</td>
-        <td>Delete</td>
+    <tr class='' style='background-color:pink;'>
+        <th>id</th>
+        <th>Category name</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+        <th>Update</th>
+        <th>delete</th>
     </tr>
         
         <?php foreach($category as $cat): ?>
@@ -443,10 +446,10 @@ include 'include/header.php';
         }
         else {
         // Print category information
-        echo "<tr class='' style='background-color:pink;'>
+        echo "<tr class='bg-active' >
         <td>".$cat['category_id']."</td>
         <td>".$cat['categoryname']."</td>
-        <td>".$cat['ctearted_at']."</td>
+        <td>".$cat['created_at']."</td>
         <td>".$cat['updated_at']."</td>
         <td><form action='admin.php' method='POST'>
             <input type='hidden' name='updateCat' value='".$cat['category_id']."'>
@@ -501,3 +504,31 @@ include 'include/header.php';
 
 <br><br>
 
+<!-- Start of Sales table -->
+<h1>Sales Information</h1>
+<table class="table">
+    <tr class='bg-success'>
+        <td>order Id</td>
+        <td>Product name</td>
+        <td>Image</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Total Price</td>
+
+    </tr>
+    
+        <?php foreach($sales as $sale): ?>
+        <?php
+
+        // Print sale information
+        echo "<tr class='bg-light'>
+        <td>".$sale['order_id']."</td>
+        <td>".$sale['product_name']."</td>
+        <td><img src='".$sale['product_image']."' style='width:25px;height:25px' alt='dining table'></td>
+        <td>".$sale['product_price']."</td>
+        <td>".$sale['qty']."</td>
+        <td>".$sale['total_price']."</tr>";
+        ?>
+        <?php endforeach; ?>
+</table>
+<!-- End of Sales table -->

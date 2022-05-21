@@ -7,12 +7,12 @@
     $handle->execute();
     $Products = $handle->fetchAll(PDO::FETCH_ASSOC);
 
-    if(isset($_GET['action'],$_GET['item']) && $_GET['action'] == 'remove')
-    {
-        unset($_SESSION['cart_items'][$_GET['item']]);
-        header('location:cart.php');
-        exit();
-    }
+    // if(isset($_GET['action'],$_GET['item']) && $_GET['action'] == 'remove')
+    // {
+    //     unset($_SESSION['cart_items'][$_GET['item']]);
+    //     header('location:cart.php');
+    //     exit();
+    // }
 	
 	$pageTitle = 'Demo PHP Shopping cart - Add to cart using Session';
 	$metaDesc = 'Demo PHP Shopping cart - Add to cart using Session';
@@ -20,7 +20,15 @@
     include('./include/header.php');
 
     //pre($_SESSION);
-    if (isset($_GET['delete'])) {
+    if (isset($_POST['remove'])) {
+        $id=$_POST['idToRemove'];
+        $sqlRemove="DELETE FROM `order_details` WHERE id='$id';";
+        $handle = $db->prepare($sqlRemove);
+        $handle->execute();
+    }
+
+
+    if (isset($_POST['delete'])) {
         $sql="DELETE FROM `order_details`";
         $handle = $db->prepare($sql);
         $handle->execute();
@@ -61,11 +69,12 @@
                     ?>
                     <tr>
                         <td>
-                            <img src="" alt="pic"class="rounded img-thumbnail mr-2" style="width:60px;"><?php echo $item['product_name'];?>
+                            <img src="<?php echo $item['product_image'];?>" alt="pic"class="rounded img-thumbnail mr-2" style="width:60px;"><?php echo $item['product_name'];?>
                             
-                            <a href="cart.php?action=remove&item=<?php echo $key?>" class="text-danger">
-                            <i class="fa-solid fa-trash"></i>
-                            </a>
+                            <form action="cart.php" method="POST">
+                                <input type="hidden" name="idToRemove" value="<?php echo $item['id'];?>">
+                                <button type="submit" name="remove"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                         <td>
                             $<?php echo $item['product_price'];?>
@@ -79,7 +88,7 @@
                     </tr>
                 <?php }?>
                 <tr class="border-top border-bottom">
-                <form action="cart.php" method="get">
+                <form action="cart.php" method="POST">
                 <td><button type="submit" class="btn btn-danger btn-sm" id="emptyCart" name="delete">Clear Cart</button></td>
                            </form>
                     

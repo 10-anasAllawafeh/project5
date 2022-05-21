@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    include 'config/connect.php';
 
     if(!isset($_SESSION['cart_items']) || empty($_SESSION['cart_items']))
     {
@@ -11,172 +12,32 @@
     require_once('include/helpers.php');  
     $cartItemCount = count($_SESSION['cart_items']);
 
-    //pre($_SESSION);
-
     if(isset($_POST['submit']))
     {
-        // if(isset($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['address'],$_POST['country'],$_POST['state'],$_POST['zipcode']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['address']) && !empty($_POST['country']) && !empty($_POST['state']) && !empty($_POST['zipcode']))
-        // {
-          //  $firstName = $_POST['first_name'];
+      $totalPrice = 0;
+      $sale_view=mysqli_fetch_all(mysqli_query($conn,'select * from order_details'),MYSQLI_ASSOC);
+      //  print_r($sale_view[0]['product_name']);
+      $orderId=$sale_view[0]['id'];
+      $productID=$sale_view[0]['product_id'];
+      $product_name=$sale_view[0]['product_name'];
+      $product_price=$sale_view[0]['product_price'];
+      $productQty=$sale_view[0]['qty'];
+      $calculateTotalPrice=$sale_view[0]['total_price'];
+      $img=$sale_view[0]['product_image'];
 
-        //    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL) == false)
-        //    {
-        //          $errorMsg[] = 'Please enter valid email address';
-        //    }
-        //    else
-        //    {
-        //        //validate_input is a custom function
-        //        //you can find it in helpers.php file
-        //         $firstName  = validate_input($_POST['first_name']);
-        //         $lastName   = validate_input($_POST['last_name']);
-        //         $email      = validate_input($_POST['email']);
-        //         $address    = validate_input($_POST['address']);
-        //         $address2   = (!empty($_POST['address'])?validate_input($_POST['address']):'');
-        //         $country    = validate_input($_POST['country']);
-        //         $state      = validate_input($_POST['state']); 
-        //         $zipcode    = validate_input($_POST['zipcode']);
+      $sql1="INSERT INTO sales (order_id,product_id,product_name,product_price,qty,total_price,product_image) VALUES ('$orderId','$productID','$product_name',$product_price,$productQty,$calculateTotalPrice,'$img');";
+      mysqli_query($conn , $sql1);
 
-        //         $sql = 'insert into orders (first_name, last_name, email, address, address2, country, state, zipcode, order_status,created_at, updated_at) values (:fname, :lname, :email, :address, :address2, :country, :state, :zipcode, :order_status,:created_at, :updated_at)';
-        //         $statement = $db->prepare($sql);
-        //         $params = [
-        //             'fname' => $firstName,
-        //             'lname' => $lastName,
-        //             'email' => $email,
-        //             'address' => $address,
-        //             'address2' => $address2,
-        //             'country' => $country,
-        //             'state' => $state,
-        //             'zipcode' => $zipcode,
-        //             'order_status' => 'confirmed',
-        //             'created_at'=> date('Y-m-d H:i:s'),
-        //             'updated_at'=> date('Y-m-d H:i:s')
-        //         ];
-
-        //         $statement->execute($params);
-        //         if($statement->rowCount() == 1)
-        //         {
-                    
-        //             $getOrderID = $db->lastInsertId();
-
-        //             if(isset($_SESSION['cart_items']) || !empty($_SESSION['cart_items']))
-        //             {
-        //                 $sqlDetails = 'insert into order_details (order_id, product_id, product_name, product_price, qty, total_price) values(:order_id,:product_id,:product_name,:product_price,:qty,:total_price)';
-        //                 $orderDetailStmt = $db->prepare($sqlDetails);
-
-        //                 $totalPrice = 0;
-        //                 foreach($_SESSION['cart_items'] as $item)
-        //                 {
-        //                     $totalPrice+=$item['total_price'];
-
-        //                     $paramOrderDetails = [
-        //                         'order_id' =>  $getOrderID,
-        //                         'product_id' =>  $item['product_id'],
-        //                         'product_name' =>  $item['product_name'],
-        //                         'product_price' =>  $item['product_price'],
-        //                         'qty' =>  $item['qty'],
-        //                         'total_price' =>  $item['total_price']
-        //                     ];
-
-        //                     $orderDetailStmt->execute($paramOrderDetails);
-        //                 }
-                        
-        //                 $updateSql = 'update orders set total_price = :total where id = :id';
-
-        //                 $rs = $db->prepare($updateSql);
-        //                 $prepareUpdate = [
-        //                     'total' => $totalPrice,
-        //                     'id' =>$getOrderID
-        //                 ];
-
-        //                 $rs->execute($prepareUpdate);
-                        
-        //                 unset($_SESSION['cart_items']);
-        //                 $_SESSION['confirm_order'] = true;
-                        header('location:thank-you.php');
-    //                     exit();
-                    }
-    //             }
-    //             else
-    //             {
-    //                 $errorMsg[] = 'Unable to save your order. Please try again';
-    //             }
-    //        }
-    //     }
-    //     else
-    //     {
-    //         $errorMsg = [];
-
-    //         if(!isset($_POST['first_name']) || empty($_POST['first_name']))
-    //         {
-    //             $errorMsg[] = 'First name is required';
-    //         }
-    //         else
-    //         {
-    //             $fnameValue = $_POST['first_name'];
-    //         }
-
-    //         if(!isset($_POST['last_name']) || empty($_POST['last_name']))
-    //         {
-    //             $errorMsg[] = 'Last name is required';
-    //         }
-    //         else
-    //         {
-    //             $lnameValue = $_POST['last_name'];
-    //         }
-
-    //         if(!isset($_POST['email']) || empty($_POST['email']))
-    //         {
-    //             $errorMsg[] = 'Email is required';
-    //         }
-    //         else
-    //         {
-    //             $emailValue = $_POST['email'];
-    //         }
-
-    //         if(!isset($_POST['address']) || empty($_POST['address']))
-    //         {
-    //             $errorMsg[] = 'Address is required';
-    //         }
-    //         else
-    //         {
-    //             $addressValue = $_POST['address'];
-    //         }
-
-    //         if(!isset($_POST['country']) || empty($_POST['country']))
-    //         {
-    //             $errorMsg[] = 'Country is required';
-    //         }
-    //         else
-    //         {
-    //             $countryValue = $_POST['country'];
-    //         }
-
-    //         if(!isset($_POST['state']) || empty($_POST['state']))
-    //         {
-    //             $errorMsg[] = 'State is required';
-    //         }
-    //         else
-    //         {
-    //             $stateValue = $_POST['state'];
-    //         }
-
-    //         if(!isset($_POST['zipcode']) || empty($_POST['zipcode']))
-    //         {
-    //             $errorMsg[] = 'Zipcode is required';
-    //         }
-    //         else
-    //         {
-    //             $zipCodeValue = $_POST['zipcode'];
-    //         }
-
-
-    //         if(isset($_POST['address2']) || !empty($_POST['address2']))
-    //         {
-    //             $address2Value = $_POST['address2'];
-    //         }
-
-    //     }
-    // }
+      $sql='DELETE FROM order_details';
+      mysqli_query($conn , $sql);
+      $_SESSION['cart_items'][]="";
+      foreach($_SESSION['cart_items'] as $item)
+      {
+      $totalPrice += $item['total_price'];
+      header('location:thank-you.php');
+      // exit();
+      }
+    }
 	
 	$pageTitle = 'Demo PHP Shopping cart checkout page with Validation';
 	$metaDesc = 'Demo PHP Shopping cart checkout page with Validation';
@@ -192,10 +53,10 @@
           <ul class="list-group mb-3">
             <?php
                 $total = 0;
-                foreach($_SESSION['cart_items'] as $cartItem)
-                {
-                    $total+=$cartItem['total_price'];
-                ?>
+                foreach($_SESSION['cart_items'] as $cartItem):?>
+                <?php
+                echo $cartItem['total_price'];
+                 $total+= $cartItem['total_price']; ?>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                             <h6 class="my-0"><?php echo $cartItem['product_name'] ?></h6>
@@ -203,9 +64,7 @@
                         </div>
                         <span class="text-muted">$<?php echo $cartItem['total_price'] ?></span>
                     </li>
-            <?php
-                }
-            ?>
+            <?php endforeach; ?>
            
             <li class="list-group-item d-flex justify-content-between">
               <span>Total (USD)</span>

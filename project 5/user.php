@@ -4,8 +4,8 @@ include 'config/connect.php';
 session_start();
 $orderF="none";
 $uF="none";
-
-
+$user_id=$_SESSION['id'];
+$orders=mysqli_fetch_all(mysqli_query($conn,"SELECT * FROM user_orders WHERE user_idd='$user_id';"),MYSQLI_ASSOC);
 
 // update user Function
 if (isset($_POST['editUser'])) {
@@ -68,17 +68,22 @@ include 'include/header.php';
                             </tbody>
                         </table>
                         <table class="table" style="display:<?php echo $orderF ?>;">
-                            <th>pname</th>
-                            <th>qty</th>
-                            <th>price</th>
-                            <th>tprice</th>
+                            <th>Product_name</th>
+                            <th>Quantity</th>
+                            <th>Product price</th>
+                            <th>Total price</th>
                             <tbody>
-                                <tr>
-                            <td>pname</td>
-                            <td>qty</td>
-                            <td>price</td>
-                            <td>tprice</td>
-                                </tr>
+                                
+                            <?php foreach ($orders as $order): ?>
+                            <?php echo 
+                            "<tr>
+                                <td>".$order['product_name']."</td>
+                                <td>".$order['qty']."</td>
+                                <td>".$order['product_price']."</td>
+                                <td>".$order['total_price']."</td>
+                                </tr>"
+                            ?>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                         <!-- Update User Info Form -->
