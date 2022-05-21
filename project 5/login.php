@@ -20,6 +20,7 @@ if (isset($_POST['login']))
     }
     else if ($lemail == 'admin@admin.com' && $lpassword == '123456') 
         {
+            $_SESSION['name']="admin";
             $ldate=date("d-m-Y H:i:s");
             $sql="INSERT INTO logins (updated_at) VALUE ('$ldate') WHERE users.fname='admin'";
             mysqli_query($conn , $sql);
@@ -82,14 +83,14 @@ include 'include/header.php';
         </div>
     </div>
 
-    <button class="btn btn-success col-md-4 offset-md-4" type="submit" name="login">LOG IN</button>
+    <button class="btn col-md-4 offset-md-4" type="submit" name="login" style="background-color:#363062 ; color:#E9D5DA">LOG IN</button>
     <br><br>
 <!-- End Log In form -->
 
 <!-- switch to signup form -->
 </form>
 <form  action="login.php" method="POST" id="sForm">
-<button class="btn btn-warning col-md-4 offset-md-4" type="submit" name="switch"><a href="./register.php">Sign Up !!!</a></button>
+<button class="btn col-md-4 offset-md-4" type="submit" name="switch" style="background-color:#E9D5DA ; color:#363062"><a href="./register.php">Sign Up !!!</a></button>
 </form>
 <!-- end of switch to signup form -->
 

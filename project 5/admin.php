@@ -200,16 +200,16 @@ include 'include/header.php';
 
 <form action="admin.php" method="POST">
 <h1>Users Information</h1>
-<button class="btn bg-primary" type="submit" name="addUserSub">Add User</button>
+<button class="btn bg-secondary" type="submit" name="addUserSub">Add User</button>
 </form>
- 
+<br>
 <table class="table" >
-    <tr class='bg-active'>
-        <td>id</td>
-        <td>name</td>
+    <tr class='bg-active' style="background-color:pink;">
+        <td>ID</td>
+        <td>Name</td>
         <td>E-mail</td>
-        <td>phone</td>
-        <td>password</td>
+        <td>Phone</td>
+        <td>Password</td>
         <td>Created at</td>
         <td>Updated at</td>
         <td>Update</td>
@@ -225,7 +225,7 @@ include 'include/header.php';
         }
         else {
         // Print user information
-        echo "<tr class='' style='background-color:pink;'>
+        echo "<tr>
         <td>".$user['id']."</td>
         <td>".$user['fname']."</td>
         <td>".$user['email']."</td>
@@ -316,8 +316,8 @@ include 'include/header.php';
 
 <!-- add product button -->
 <form action="admin.php" method="POST">
-<h1>products Information</h1>
-<button class="btn bg-primary" type="submit" name="addProductSub" style="display:<?php echo $baF; ?> ;">Add Product</button>
+<h1>Products Information</h1>
+<button class="btn bg-secondary" type="submit" name="addProductSub" style="display:<?php echo $baF; ?> ;">Add Product</button>
 </form>
 
 <!-- Add Product Form -->
@@ -363,7 +363,7 @@ include 'include/header.php';
 
 <!-- Products Information Table -->
 <table class="table">
-    <tr>
+    <tr class='bg-warning'>
         <td>Id</td>
         <td>Product name</td>
         <td>Image</td>
@@ -384,7 +384,7 @@ include 'include/header.php';
         }
         else {
         // Print product information
-        echo "<tr class='bg-warning'>
+        echo "<tr >
         <td>".$product['id']."</td>
         <td>".$product['pname']."</td>
         <td><img src='".$product['image']."' style='width:25px;height:25px' alt='dining table'></td>
@@ -448,18 +448,18 @@ include 'include/header.php';
 
 <!-- categories Information Table -->
 <form action="admin.php" method="POST">
-<h1>categories Information</h1>
-<button class="btn bg-primary" type="submit" name="addCatSub">Add Category</button>
+<h1>Categories Information</h1>
+<button class="btn bg-secondary" type="submit" name="addCatSub">Add Category</button>
 </form>
- 
+<br>
 <table class="table" >
     <tr class='' style='background-color:pink;'>
-        <th>id</th>
-        <th>Category name</th>
+        <th>ID</th>
+        <th>Category Name</th>
         <th>Created at</th>
         <th>Updated at</th>
         <th>Update</th>
-        <th>delete</th>
+        <th>Delete</th>
     </tr>
         
         <?php foreach($category as $cat): ?>
@@ -533,12 +533,12 @@ include 'include/header.php';
 <h1>Sales Information</h1>
 <table class="table">
     <tr class='bg-success'>
-        <td>order Id</td>
-        <td>Product name</td>
-        <td>Image</td>
-        <td>Price</td>
-        <td>Quantity</td>
-        <td>Total Price</td>
+        <th>order Id</th>
+        <th>Product name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
 
     </tr>
     

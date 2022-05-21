@@ -266,7 +266,7 @@
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-success col-md-4 offset-md-4" name="signup">Sign Up</button>
+  <button type="submit" class="btn col-md-4 offset-md-4" name="signup" style="background-color:#363062 ; color:#E9D5DA">Sign Up</button>
   <br><br>
   
 </form>
@@ -274,7 +274,7 @@
 
 <!-- switch to login form -->
 <form class="needs-validation" action="register.php" method="POST" novalidate style="display:<?php echo $s2; ?> ;">
-<button class="btn btn-warning col-md-4 offset-md-4" type="submit" name="switch"><a href="./login.php">Log In !!!</a></button>
+<button class="btn col-md-4 offset-md-4" type="submit" name="switch" style="background-color:#E9D5DA ; color:#363062"><a href="./login.php">Log In !!!</a></button>
 </form>
 <!-- end of switch to login form -->
 

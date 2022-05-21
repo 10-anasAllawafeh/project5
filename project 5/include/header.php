@@ -1,12 +1,12 @@
 <?php
 
-$uss="none";
-$uss1="inline-block";
+$uss = "none";
+$uss1 = "inline-block";
 
 
 if (!empty($_SESSION['name'])) {
-    $uss="inline-block";
-    $uss1="none";
+    $uss = "inline-block";
+    $uss1 = "none";
 }
 ?>
 <!DOCTYPE html>
@@ -100,22 +100,21 @@ if (!empty($_SESSION['name'])) {
                                 <div class="right_header_info">
                                     <ul>
                                         <li class="active"> <a href="index.php">Home</a></li>
-                                        <li> <a href="about.php">About</a></li>
                                         <li> <a href="main.php">Product</a></li>
-                                        <li> <a href="blog.php">Blog</a></li>
+                                        <li> <a href="about.php">About</a></li>
                                         <li> <a href="contact.php">Contact us</a></li>
                                         <li style="display:<?php echo $uss1; ?> ;">
-                                        <a href="register.php" >Sign up</a>
+                                            <a href="register.php">Sign up</a>
                                         </li>
                                         <li style="display:<?php echo $uss1; ?> ;">
-                                        <a href="login.php">Login</a>
+                                            <a href="login.php">Login</a>
                                         </li>
 
-                                        <li style="display:<?php echo $uss; ?> ;"><a href="cart.php"><i class="fa-solid fa-basket-shopping basket-icon"></i></a>
+                                        <li style="display:<?php echo $uss; ?> ;"><a href="cart.php"><i class="fa-solid fa-basket-shopping fa-lg basket-icon"></i></a>
                                         </li>
-                                        <li style="display:<?php echo $uss; ?> ;"><a href="user.php" ><i class="fa-solid fa-user basket-icon"></i></a>
+                                        <li style="display:<?php echo $uss; ?> ;"><a href="user.php"><i class="fa-solid fa-user fa-lg basket-icon"></i></a>
                                         </li>
-                                        <li style="display:<?php echo $uss; ?> ;"><a href="logout.php" ><i class="fa-solid fa-person-walking-arrow-right"></i></i></a>
+                                        <li style="display:<?php echo $uss; ?> ;"><a href="logout.php"><i class="fa-solid fa-person-walking-arrow-right fa-lg basket-icon"></i></i></a>
                                         </li>
 
                                         <!-- <li>

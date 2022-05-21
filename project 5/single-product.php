@@ -113,7 +113,7 @@ include('include/header.php');
             <div class="col-md-5">
                 <img src="<?php echo $product[0]['image']; ?>">
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7" style="margin-top: 1.5em;">
                 <h1><?php echo $product[0]['pname']?></h1>
                 <p><?php
                  echo $product[0]['description']
@@ -121,25 +121,29 @@ include('include/header.php');
                 <h4>$<?php echo $product[0]['price']?></h4>
                 
                 <form class="form-inline" method="POST">
-                    <div class="form-group mb-2">
-                        <input type="number" name="product_qty" id="productQty" class="form-control" placeholder="Quantity" min="1" max="1000" value="1">
-                        <input type="hidden" name="product_id" value="<?php echo $product[0]['id']?>">
+                    <div class="form-group mb-2  ">
+                        <input type="number" name="product_qty" id="productQty" class="form-control-md" placeholder="Quantity" min="1" max="1000" value="1">
+                        <input type="hidden" name="product_id" value="<?php echo $product[0]['id']?>" style="">
                     </div>
                     <div class="form-group mb-2 ml-2">
-                        <button type="submit" class="btn btn-primary" name="add_to_cart" value="add to cart">Add to Cart</button>
+                        <button type="submit" class="btn btn-secondary" name="add_to_cart" value="add to cart">Add to Cart</button>
                     </div>
                 </form>
                 
             </div>
         </div>
-        <div class="row mt-3">
+
+
+<!-- Comment -->
+
+        <div class="row mt-3" >
             <div class="col-md-12">
                 <?php 
                 echo
-                "<form  method='Post' action='".setComments($db)."'>
+                "<form  method='Post' action='".setComments($db)." ' style='margin-left: 2em;'>
                         <input type='hidden' name='userName' value='".$userName."'>
                         <input type='hidden' name='product_id' value='".$product[0]['id']."'>
-                        <textarea name='msg'  cols='30' rows='10'></textarea><br>
+                        <textarea name='msg'  cols='50' rows='5'></textarea><br>
                         <input type='submit' name='CommentSubmit' value='Comment'>
                 </form>" ;
                 

@@ -70,11 +70,12 @@
                     <tr>
                         <td>
                             <img src="<?php echo $item['product_image'];?>" alt="pic"class="rounded img-thumbnail mr-2" style="width:60px;"><?php echo $item['product_name'];?>
-                            
-                            <form action="cart.php" method="POST">
+                            <form action="cart.php" method="POST" style="  display: inline-block; margin-left:.50em">
                                 <input type="hidden" name="idToRemove" value="<?php echo $item['id'];?>">
-                                <button type="submit" name="remove"><i class="fa-solid fa-trash"></i></button>
+                                <button type="submit" name="remove" ><i class="fa-solid fa-trash fa-xl" style="color:#F32424;"></i></button>
                             </form>
+                            
+                            
                         </td>
                         <td>
                             $<?php echo $item['product_price'];?>
@@ -107,11 +108,11 @@
         <div class="row">
             <div class="col-md-11">
 				<a href="checkout.php">
-					<button class="btn btn-primary btn-lg float-right">Checkout</button>
+					<button class="btn btn-secondary btn-lg float-right">Checkout</button>
 				</a>
             </div>
         </div>
-        
+        <br>
         <?php endif; ?>
     </div>
 </div>

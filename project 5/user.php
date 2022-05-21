@@ -63,7 +63,7 @@ include 'include/header.php';
                                 </tr>
                             <tr class="col-lg-offset-4"><td><form action="user.php" method="post"><button type="submit" class="btn btn-light" name="editUser">Edit</button></form></td></tr>
                             <tr><td>                    <form action="user.php" method="post">
-                            <button class="btn btn-primary" type="submit" name="cart">My Orders</button>
+                            <button class="btn btn-secondary" type="submit" name="cart">My Orders</button>
                         </form></td></tr>
                             </tbody>
                         </table>

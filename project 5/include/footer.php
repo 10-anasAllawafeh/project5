@@ -22,11 +22,11 @@
 
                                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                                     <ul class="sociel">
-                                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li> <a href="#"><i class="fa-brands fa-github"></i></a></li>
+                                        <li> <a href="https://web.facebook.com/dyar.hunaity.1?_rdc=1&_rdr"><i class="fa fa-facebook-f"></i></a></li>
+                                        <li> <a href="https://twitter.com/obadaAlshafie"><i class="fa fa-twitter"></i></a></li>
+                                        <li> <a href="https://www.instagram.com/marwa.nseerat98/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                                        <li> <a href="https://www.linkedin.com/in/anas-al-lawafeh-b05954232/"><i class="fa fa-linkedin"></i></a></li>
+                                        <li> <a href="https://github.com/Dua-Alsafasfeh"><i class="fa-brands fa-github"></i></a></li>
                                         
                                     </ul>
                                 </div>

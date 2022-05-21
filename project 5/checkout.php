@@ -45,7 +45,7 @@
     include('include/header.php');
 ?>
 <div class="row mt-3">
-        <div class="col-md-4 order-md-2 mb-4">
+        <div class="col-md-8 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
             <span class="badge badge-secondary badge-pill"><?php echo $cartItemCount;?></span>
@@ -72,7 +72,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-md-8 order-md-1">
+        <div class="col-md-4 order-md-1">
           <!-- <h4 class="mb-3">Billing address</h4> -->
           <?php 
             if(isset($errorMsg) && count($errorMsg) > 0)
@@ -154,7 +154,7 @@
             </div>
            
             <hr class="mb-4">-->
-            <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="submit">Continue to checkout</button>
+            <button class="btn btn-secondary btn-lg" type="submit" name="submit" value="submit" >Continue to checkout</button>
           </form> 
         
         </div>

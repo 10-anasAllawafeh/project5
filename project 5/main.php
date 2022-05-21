@@ -20,17 +20,20 @@
 
 
     include('include/header.php');
+    
 ?>
+<br>
+  
     <div class="row">
         <div class="col-md-12 col-lg-12 col-xl-12 offset-md-4">
-        <form action="main.php" method="POST" class="form col-md-12 col-lg-12 col-xl-12 ">
-            <select name="category" class="form-control col-4" id="" style="height:7vh ;">
+        <form action="main.php" method="POST" >
+            <select name="category" class="form-control col-4" id="" style="height:7vh ; display: inline-block; ">
                 <option value="all">all products</option>
                 <option value="office">Office products</option>
                 <option value="Bedroom">Bedroom Products</option>
                 <option value="livingroom">Living Room Products</option>
             </select>
-            <button class="btn btn-success" name="select" type="submit">Select</button>
+            <button class="btn btn-secondary " name="select" type="submit" style="margin-left: .75em;">Select</button>
         </form>
         </div>
         <br><br><br>
@@ -211,5 +214,6 @@
             
         <?php endforeach; ?>
     </div>
+    <br>
 <?php include('include/footer.php');?>
 
