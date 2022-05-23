@@ -20,7 +20,6 @@ if (isset($_POST['login']))
     }
     else if ($lemail == 'admin@admin.com' && $lpassword == '123456') 
         {
-            $_SESSION['name']="admin";
             $ldate=date("d-m-Y H:i:s");
             $sql="INSERT INTO logins (updated_at) VALUE ('$ldate') WHERE users.fname='admin'";
             mysqli_query($conn , $sql);
@@ -57,13 +56,18 @@ if (isset($_POST['login']))
 }
 include 'include/header.php'; 
 ?>
-<br><br>
+<div class="hr-theme-slash-2">
+  <div class="hr-line"></div>
+  <div class="hr-icon"><i class="fa-solid fa-couch"></i></div>
+  <div class="hr-line"></div>
+</div>
+<br>
 <!-- Log In form -->
 
 <form  action="login.php" method="POST" id="logForm">
 
     
-        <h2 style="text-align:center; font-family: 'FontAwesome';
+        <h2 style="text-align:center; font-family: 'FontAwesome'; color:#363062;
     font-weight: bolder;">Log In form</h2>
     
 
