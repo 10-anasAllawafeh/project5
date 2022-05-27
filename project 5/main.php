@@ -56,11 +56,11 @@
                         <img class='card-img-top' src='".$imgUrl."' alt='".$product['pname']."'>
                     </a>
                     <div class='card-body'>
-                        <h5 class='card-title'>
+                        <h4 class='card-title'>
                             <a href='single-product.php?product=".$product['id']."'>
                                 ".$product['pname']."
                             </a>
-                            </h5>";
+                            </h4>";
                             if ($product['sale']==1) {
                                 echo "<span class='product_price'>JD".$product['new_price']."</span>
                                 <span class ='old-price' STYLE='text-decoration:line-through'>JD".$product['price']."</span>";
@@ -86,11 +86,11 @@
                                     <img class='card-img-top' src='".$imgUrl."' alt='".$product['pname']."'>
                                 </a>
                                 <div class='card-body'>
-                                    <h5 class='card-title'>
+                                    <h4 class='card-title'>
                                         <a href='single-product.php?product=".$product['id']."'>
                                             ".$product['pname']."
                                         </a>
-                                        </h5>";
+                                        </h4>";
                                         if ($product['sale']==1) {
                                             echo "<span class='product_price'>JD".$product['new_price']."</span>
                                             <span class ='old-price' STYLE='text-decoration:line-through'>JD".$product['price']."</span>";
@@ -119,11 +119,11 @@
                                     <img class='card-img-top' src='".$imgUrl."' alt='".$product['pname']."'>
                                 </a>
                                 <div class='card-body'>
-                                    <h5 class='card-title'>
+                                    <h4 class='card-title'>
                                         <a href='single-product.php?product=".$product['id']."'>
                                             ".$product['pname']."
                                         </a>
-                                        </h5>";
+                                        </h4>";
                                         if ($product['sale']==1) {
                                             echo "<span class='product_price'>JD".$product['new_price']."</span>
                                             <span class ='old-price' STYLE='text-decoration:line-through'>JD".$product['price']."</span>";
@@ -152,11 +152,11 @@
                                     <img class='card-img-top' src='".$imgUrl."' alt='".$product['pname']."'>
                                 </a>
                                 <div class='card-body'>
-                                    <h5 class='card-title'>
+                                    <h4 class='card-title'>
                                         <a href='single-product.php?product=".$product['id']."'>
                                             ".$product['pname']."
                                         </a>
-                                    </h5>";
+                                    </h4>";
                                     if ($product['sale']==1) {
                                         echo "<span class='product_price'>JD".$product['new_price']."</span>
                                         <span class ='old-price' STYLE='text-decoration:line-through'>JD".$product['price']."</span>";
@@ -185,11 +185,11 @@
                                         <img class='card-img-top' src='".$imgUrl."' alt='".$product['pname']."'>
                                     </a>
                                     <div class='card-body'>
-                                        <h5 class='card-title'>
+                                        <h4 class='card-title'>
                                             <a href='single-product.php?product=".$product['id']."'>
                                                 ".$product['pname']."
                                             </a>
-                                            </h5>";
+                                            </h4>";
                                             if ($product['sale']==1) {
                                                 echo "<span class='product_price'>JD".$product['new_price']."</span>
                                                 <span class ='old-price' STYLE='text-decoration:line-through'>JD".$product['price']."</span>";
@@ -219,11 +219,11 @@
                         <img class='card-img-top' src='".$imgUrl."' alt='".$product['pname']."'>
                     </a>
                     <div class='card-body'>
-                        <h5 class='card-title'>
+                        <h4 class='card-title'>
                             <a href='single-product.php?product=".$product['id']."'>
                                 ".$product['pname']."
                             </a>
-                        </h5>";
+                        </h4>";
                         if ($product['sale']==1) {
                             echo "<span class='product_price'>JD".$product['new_price']."</span>
                             <span class ='old-price' STYLE='text-decoration:line-through'>JD".$product['price']."</span>";

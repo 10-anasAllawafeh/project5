@@ -93,8 +93,13 @@
 include('include/header.php');
 
 ?>
+<div class="hr-theme-slash-2">
+  <div class="hr-line"></div>
+  <div class="hr-icon"><i class="fa-solid fa-couch"></i></div>
+  <div class="hr-line"></div>
+</div>
+
 <?php if(isset($product[0]) && is_array($product[0])){?>
-    
     <?php if(isset($successMsg) && $successMsg == true){?>
             <div class="row mt-3">
                 <div class="col-md-12">
@@ -105,7 +110,6 @@ include('include/header.php');
                 </div>
             </div>
          <?php }?>
-
             <div class="layout_padding-2">
                 <div class="container">
                     <div class="row">

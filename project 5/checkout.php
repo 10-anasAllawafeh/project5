@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 
   $sql = 'DELETE FROM order_details';
   mysqli_query($conn, $sql);
-  $_SESSION['cart_items'][] = "";
+  // $_SESSION['cart_items'][] = "";
   foreach ($_SESSION['cart_items'] as $item) {
     $totalPrice += $item['total_price'];
     header('location:thank-you.php');
@@ -76,7 +76,7 @@ include('include/header.php');
       </ul>
     </div>
     <div class="col-md-6 order-md-1">
-      <h4 class="mb-3">Billing address</h4>
+      <h3 class="mb-3">Billing address</h3>
       <?php
       if (isset($errorMsg) && count($errorMsg) > 0) {
         foreach ($errorMsg as $error) {
@@ -90,13 +90,13 @@ include('include/header.php');
             <label for="firstName">First name</label>
             <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php
                                                                                                                       echo (isset($fnameValue) && !empty($fnameValue)) ? $fnameValue : ''
-                                                                                                                      ?>">
+                                                                                                                      ?>" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
             <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php
                                                                                                                   echo (isset($lnameValue) && !empty($lnameValue)) ? $lnameValue : ''
-                                                                                                                  ?>">
+                                                                                                                  ?>" required>
           </div>
         </div>
 
@@ -104,14 +104,14 @@ include('include/header.php');
           <label for="email">Email</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?php
                                                                                                                 echo (isset($emailValue) && !empty($emailValue)) ? $emailValue : ''
-                                                                                                                ?>">
+                                                                                                                ?>" required>
         </div>
 
         <div class="mb-3">
           <label for="address">Address</label>
           <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="<?php
                                                                                                                 echo (isset($addressValue) && !empty($addressValue)) ? $addressValue : ''
-                                                                                                                ?>">
+                                                                                                                ?>" required>
         </div>
 
         <div class="mb-3">
@@ -130,12 +130,12 @@ include('include/header.php');
               <option value="Aqaba">Aqaba</option>
               <option value="Maan">Maan</option>
               <option value="Irbid">Irbid</option>
-              <option value="Zarqa">Zarqa</option>
+              <option value="Zarqa">Zarqaa</option>
               <option value="Ajloun">Ajloun</option>
               <option value="Jarash">Jarash</option>
               <option value="Al-Mafraq">Al-Mafraq</option>
-              <option value="Al-Tafeela">Al-Tafeela</option>
-              <option value="El-Karak">El-Karak</option>
+              <option value="Al-Tafeela">Al-Tafila</option>
+              <option value="El-Karak">Al-Karak</option>
               <option value="Madaba">Madaba</option>
               <option value="Al-Salt">Al-Salt</option>
             </select>
