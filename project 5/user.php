@@ -20,6 +20,8 @@ if (isset($_POST['updateUserSubmit'])) {
 
     $sqlh = "UPDATE `users` SET fname='$newName',email='$newEmail',phone='$newPhone',pass='$newPass',addres='$newAddress',updated_at='$updateat',city='$newCity' WHERE id='$user_id';";
     mysqli_query($conn, $sqlh);
+    echo "<script>alert('Your Data Updated Successfully');</script>";
+    header("location: user.php");
     // echo $newName.$newEmail.$newPhone.$updateat.$newAddress.$newCity;
 }
 

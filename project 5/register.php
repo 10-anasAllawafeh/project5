@@ -131,9 +131,8 @@ if (isset($_POST["signup"])) {
         $phone = $_POST["phoneNumber"];
         $city = $_POST['city'];
         $addres = $_POST['address'];
-        $password = $_POST["registerPass"];
+        $password =md5($_POST["registerPass"]) ;
         $bdate = $_POST["date"];
-
         $sqlr="INSERT INTO users (fname, lname, email, phone, city, addres, pass, bdate) 
                 VALUES('$fname','$lname','$email','$phone','$city','$addres','$password','$bdate')";
         mysqli_query($conn, $sqlr);

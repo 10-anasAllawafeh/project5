@@ -142,7 +142,8 @@ include('include/header.php');
                                 </div>
                                 <div class="detail-contant">
                                     <p><?php echo $product[0]['description']; ?>
-                                        <br><span class="stock"><?php echo $product[0]['quantity']; ?> in stock</span>
+                                        <br>
+                                        <span class="stock"><?php echo $product[0]['quantity']; ?> in stock</span>
                                     </p>
                                     <form class="form-inline" method="POST">
                     <div class="form-group mb-2  ">
@@ -163,7 +164,7 @@ include('include/header.php');
                                 <div class="tab_bar_section">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#description">Description</a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reviews">Reviews (2)</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reviews">Reviews</a> </li>
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content">

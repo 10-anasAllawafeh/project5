@@ -28,7 +28,7 @@ if (!empty($_SESSION['name'])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/style2.css">
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
 
@@ -49,7 +49,6 @@ if (!empty($_SESSION['name'])) {
             font-family:Arial, Helvetica, sans-serif;
         }
     </style>
-    <link rel="stylesheet" href="css/style2.css">
 </head>
 <!-- body -->
 
