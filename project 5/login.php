@@ -14,7 +14,8 @@ if (isset($_POST['login']))
 {
 
     $lemail=$_POST['email'];
-    $lpassword=md5($_POST['password']);
+    // $lpassword=md5($_POST['password']);
+    $lpassword=$_POST['password'];
     if (empty($_POST['email']) || empty($_POST['password'])) {
         $lp="block";
         $lpErr="please insert email and Password";

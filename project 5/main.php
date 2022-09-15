@@ -136,6 +136,32 @@ include('include/header.php');
                     </div>
                 </div>";
                     }
+                }else {
+                    echo "<div class='col-md-4  mt-2'>
+                <div class='card prodheigh'>
+                     <a href='product_detail3.php?product=" . $product['id'] . "'>
+                        <img class='card-img-top' src='" . $imgUrl . "' alt='" . $product['pname'] . "'>
+                    </a>
+                    <div class='card-body'>
+                        <h4 class='card-title'>
+                            <a href='product_detail3.php?product=" . $product['id'] . "'>
+                                " . $product['pname'] . "
+                            </a>
+                            </h4>";
+                    if ($product['sale'] == 1) {
+                        echo "<span class='product_price'>JD" . $product['new_price'] . "</span>
+                                <span class ='old-price' STYLE='text-decoration:line-through'>JD" . $product['price'] . "</span>";
+                    } else {
+                        echo "<span class='product_price'>JD" . $product['price'] . "</span>";
+                    }
+                    echo "<p class='card-text'>
+                            <a href='product_detail3.php?product=" . $product['id'] . "' class='btn btn-secondary btn-sm'>
+                                View
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>";
                 }
 
                 ?>
